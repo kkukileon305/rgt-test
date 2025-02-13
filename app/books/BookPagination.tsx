@@ -74,10 +74,10 @@ const BookPagination = ({ firstPageData }: BookPaginationProps) => {
               href={`/books/${book.id}`}
               className="w-full flex items-center"
             >
-              <span className="w-[calc(100%-96px)] flex font-extrabold px-4">
+              <span className="w-[calc(100%-128px)] flex font-extrabold px-4">
                 {book.title}
               </span>
-              <span className="w-24 border-l-2 flex h-full items-center justify-center border-white">
+              <span className="w-32 border-l-2 text-center text-sm flex h-full items-center justify-center border-white">
                 {book.author}
               </span>
             </Link>
