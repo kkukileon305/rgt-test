@@ -19,7 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="kr">
-      <body className={`${font.className} min-h-dvh`}>{children}</body>
+      <body className={`${font.className} min-h-lvh max-w-md mx-auto border`}>
+        {children}
+      </body>
     </html>
   );
 }
