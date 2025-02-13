@@ -1,7 +1,7 @@
 "use client";
 
-import { FakeBook } from "@/app/books/actions";
-import { useState } from "react";
+import { FakeBook, getBooksWithPagination } from "@/app/books/actions";
+import { FormEventHandler, useEffect, useState } from "react";
 import Link from "next/link";
 
 type BookPaginationProps = {
@@ -10,32 +10,61 @@ type BookPaginationProps = {
 
 const BookPagination = ({ firstPageData }: BookPaginationProps) => {
   const [data, setData] = useState<FakeBook[]>(firstPageData);
+  const [page, setPage] = useState(0);
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+
+  const onSubmit: FormEventHandler = async (e) => {
+    e.preventDefault();
+
+    const target = e.target as HTMLFormElement;
+
+    // 일관성을 위해 제목이나 저자를 변경시 page 초기화
+    setPage(0);
+
+    setAuthor(target.author.value);
+    setTitle(target.bookTitle.value);
+  };
+
+  useEffect(() => {
+    (async () => {
+      const newData = await getBooksWithPagination({
+        page,
+        size: 10,
+        title: title ? title : undefined,
+        author: author ? author : undefined,
+      });
+
+      setData(newData);
+    })();
+  }, [page, title, author]);
 
   return (
     <div className="h-lvh">
       {/* 검색 */}
-      <div className="flex h-[82px]">
+      <form onSubmit={onSubmit} className="flex h-[82px]">
         <div className="flex flex-col w-[calc(100%-64px)]">
           <input
             type="text"
-            name=""
-            id=""
+            id="bookTitle"
             className="p-2"
             placeholder="제목..."
           />
           <div className="h-[2px] bg-gray-800" />
           <input
             type="text"
-            name=""
-            id=""
+            id="author"
             className="p-2"
             placeholder="저자..."
           />
         </div>
-        <div className="bg-green-600 font-bold text-white w-16 flex justify-center items-center">
+        <button
+          type="submit"
+          className="bg-green-600 font-bold text-white w-16 flex justify-center items-center"
+        >
           검색
-        </div>
-      </div>
+        </button>
+      </form>
 
       {/* 책 리스트*/}
       <ul className="h-[calc(100%-122px)]">
@@ -57,7 +86,9 @@ const BookPagination = ({ firstPageData }: BookPaginationProps) => {
       </ul>
 
       {/* 네비게이터 */}
-      <div className="h-10">navigator</div>
+      <div className="h-10">
+        <button onClick={() => setPage((p) => p + 1)}>+1</button>
+      </div>
     </div>
   );
 };
