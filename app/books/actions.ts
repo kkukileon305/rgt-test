@@ -1,5 +1,12 @@
 "use server";
 
+import fakebooksInfo from "@/app/books/fakebooksInfo";
+
+// 단순 유틸함수
+async function delay(time: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+
 export type FakeBook = {
   id: number;
   title: string;
@@ -12,18 +19,7 @@ export type FakeBookDetail = FakeBook & {
   genre: string;
 };
 
-async function delay(time: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, time));
-}
-
-let fakeBooksDB: FakeBookDetail[] = Array.from({ length: 54 }, (_, i) => ({
-  id: i,
-  title: `${i}번째 책`,
-  author: `${i}번째 작가`,
-  description: `${i}번째 설명`,
-  publishedYear: i + 1980,
-  genre: "장르",
-}));
+let fakeBooksDB: FakeBookDetail[] = fakebooksInfo;
 
 type GetBookInputOption = {
   page: number;
