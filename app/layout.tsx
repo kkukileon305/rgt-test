@@ -7,6 +7,7 @@ const font = Noto_Sans_KR({
   weight: "300",
 });
 
+// 상점 주인을 위한 페이지이므로 SEO최적화 과정은 필요없을듯
 export const metadata: Metadata = {
   title: "RGT - 과제",
   description: "RGT 웹 프론트엔드 과제",
