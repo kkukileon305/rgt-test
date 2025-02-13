@@ -1,12 +1,12 @@
 "use server";
 
-type FakeBook = {
+export type FakeBook = {
   id: number;
   title: string;
   author: string;
 };
 
-type FakeBookDetail = FakeBook & {
+export type FakeBookDetail = FakeBook & {
   description: string;
   publishedYear: number;
   genre: string;
@@ -33,7 +33,7 @@ type GetBookInputOption = {
 };
 
 export async function getBooksWithPagination(
-  inputOption: GetBookInputOption
+  inputOption: GetBookInputOption,
 ): Promise<FakeBook[]> {
   const { page, size, title, author } = inputOption;
   const start = page * size;
@@ -48,7 +48,7 @@ export async function getBooksWithPagination(
   }
   if (author) {
     filteredBooks = filteredBooks.filter((book) =>
-      book.author.includes(author)
+      book.author.includes(author),
     );
   }
 
@@ -60,7 +60,7 @@ export async function getBooksWithPagination(
 }
 
 export async function getBookDetail(
-  id: number
+  id: number,
 ): Promise<FakeBookDetail | null> {
   const bookDetail = fakeBooksDB.find((book) => book.id === id);
   await delay(1000);
