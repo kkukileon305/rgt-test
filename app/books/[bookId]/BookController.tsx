@@ -1,16 +1,28 @@
 "use client";
 
-import { FakeBookDetail } from "@/app/books/actions";
+import { FakeBookDetail, updateBook } from "@/app/books/actions";
 import { FaArrowUp, FaSave } from "react-icons/fa";
 import { FormEventHandler, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const BookController = ({ bookDetail }: { bookDetail: FakeBookDetail }) => {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [newCount, setNewCount] = useState(bookDetail.count);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit: FormEventHandler = async (e) => {
     e.preventDefault();
-    console.log(newCount);
+
+    setIsLoading(true);
+    await updateBook({
+      id: bookDetail.id,
+      count: newCount,
+    });
+    setIsLoading(false);
+
+    setIsOpen(false);
+    router.refresh();
   };
 
   return (
@@ -34,7 +46,7 @@ const BookController = ({ bookDetail }: { bookDetail: FakeBookDetail }) => {
               <button
                 type="submit"
                 className="w-8 flex justify-center items-center disabled:grayscale"
-                disabled={newCount === bookDetail.count}
+                disabled={newCount === bookDetail.count || isLoading}
               >
                 <FaSave size={20} color="green" />
               </button>

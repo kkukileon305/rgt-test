@@ -40,6 +40,7 @@ export default async function Page({
         </h2>
         <p className="px-4 py-2">{bookDetail.author}</p>
         <p className="px-4 py-2">{bookDetail.description}</p>
+        <p className="px-4 py-2">재고 {bookDetail.count}</p>
       </div>
 
       {/* 하단 관리 네비게이션 */}

@@ -11,13 +11,13 @@ export type FakeBook = {
   id: number;
   title: string;
   author: string;
+  count: number;
 };
 
 export type FakeBookDetail = FakeBook & {
   description: string;
   publishedYear: number;
   genre: string;
-  count: number;
 };
 
 let fakeBooksDB: FakeBookDetail[] = fakebooksInfo;
@@ -59,6 +59,7 @@ export async function getBooksWithPagination(
       id: book.id,
       author: book.author,
       title: book.title,
+      count: book.count,
     })),
     count: filteredBooks.length,
   };
@@ -104,8 +105,8 @@ type UpdateBookInput = {
 };
 
 export async function updateBook({ id, count }: UpdateBookInput) {
-  fakeBooksDB = fakeBooksDB.map((book) =>
-    book.id === id
+  fakeBooksDB = [...fakeBooksDB].map((book) =>
+    book.id !== id
       ? book
       : {
           ...book,

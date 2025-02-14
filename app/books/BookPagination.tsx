@@ -128,7 +128,9 @@ const BookPagination = ({ firstPageData }: BookPaginationProps) => {
               {pages.map((p) => (
                 <button
                   key={p}
-                  className={`text-gray-400 ${page === p && "font-bold text-blue-600"}`}
+                  className={`text-gray-400 ${
+                    page === p && "font-bold text-blue-600"
+                  }`}
                   onClick={() => {
                     setIsLoading(true);
                     setPage(p);
