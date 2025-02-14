@@ -2,6 +2,8 @@
 
 import fakebooksInfo from "@/app/books/fakebooksInfo";
 
+const fakeBooksDB: FakeBookDetail[] = [...fakebooksInfo];
+
 // 단순 유틸함수
 async function delay(time: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, time / 100));
@@ -20,8 +22,6 @@ export type FakeBookDetail = FakeBook & {
   genre: string;
 };
 
-let fakeBooksDB: FakeBookDetail[] = fakebooksInfo;
-
 type GetBookInputOption = {
   page: number;
   size: number;
@@ -37,13 +37,11 @@ export type BookPaginationData = {
 export async function getBooksWithPagination(
   inputOption: GetBookInputOption
 ): Promise<BookPaginationData> {
-  const { page, size, title, author } = inputOption;
-  const start = page * size;
-  const end = start + size;
-
   await delay(1000);
 
-  let filteredBooks = fakeBooksDB;
+  // 최신 상태의 데이터를 가져오기 위해 깊은 복사
+  let filteredBooks = [...fakeBooksDB];
+  const { title, author } = inputOption;
 
   if (title) {
     filteredBooks = filteredBooks.filter((book) => book.title.includes(title));
@@ -54,13 +52,11 @@ export async function getBooksWithPagination(
     );
   }
 
+  const start = inputOption.page * inputOption.size;
+  const end = start + inputOption.size;
+
   return {
-    data: filteredBooks.slice(start, end).map((book) => ({
-      id: book.id,
-      author: book.author,
-      title: book.title,
-      count: book.count,
-    })),
+    data: filteredBooks.slice(start, end),
     count: filteredBooks.length,
   };
 }
@@ -69,6 +65,7 @@ export async function getBookDetail(
   id: number
 ): Promise<FakeBookDetail | null> {
   const bookDetail = fakeBooksDB.find((book) => book.id === id);
+
   await delay(1000);
   return bookDetail ? bookDetail : null;
 }
@@ -88,14 +85,10 @@ export async function addBook(bookInput: AddBookInput) {
 
   await delay(1000);
 
-  fakeBooksDB = [
-    ...fakeBooksDB,
-    {
-      id,
-      ...bookInput,
-    },
-  ];
-
+  fakeBooksDB.push({
+    id,
+    ...bookInput,
+  });
   return;
 }
 
@@ -105,23 +98,8 @@ type UpdateBookInput = {
 };
 
 export async function updateBook({ id, count }: UpdateBookInput) {
-  fakeBooksDB = [...fakeBooksDB].map((book) =>
-    book.id !== id
-      ? book
-      : {
-          ...book,
-          count,
-        }
-  );
+  const index = fakeBooksDB.findIndex((book) => book.id === id);
 
-  return;
-}
-
-export async function deleteBook(bookId: number) {
-  await delay(1000);
-
-  // 사용자가 보이는 책을 선택해서 삭제하도록(직접 id입력하지 않음 => 없는 id가 갈 일이 없음)
-  fakeBooksDB = fakeBooksDB.filter((book) => book.id !== bookId);
-
+  fakeBooksDB[index] = { ...fakeBooksDB[index], count };
   return;
 }

@@ -9,19 +9,15 @@ import Link from "next/link";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 import { ImSpinner8 } from "react-icons/im";
 
-type BookPaginationProps = {
-  firstPageData: BookPaginationData;
-};
-
-const BookPagination = ({ firstPageData }: BookPaginationProps) => {
-  const [bookData, setBookData] = useState<BookPaginationData>(firstPageData);
+const BookPagination = () => {
+  const [bookData, setBookData] = useState<BookPaginationData | null>(null);
   const [page, setPage] = useState(0);
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   // 네이게이터 페이지
-  const totalPages = Math.ceil(bookData.count / 10);
+  const totalPages = Math.ceil((bookData ? bookData.count : 0) / 10);
   const pages = Array.from({ length: totalPages }, (_, i) => i);
 
   const onSubmit: FormEventHandler = async (e) => {
@@ -42,8 +38,6 @@ const BookPagination = ({ firstPageData }: BookPaginationProps) => {
       const newData = await getBooksWithPagination({
         page,
         size: 10,
-        title: title ? title : undefined,
-        author: author ? author : undefined,
       });
 
       setIsLoading(false);
@@ -82,7 +76,7 @@ const BookPagination = ({ firstPageData }: BookPaginationProps) => {
       <div className="h-[calc(100%-122px)]">
         {!isLoading && (
           <ul className="h-full">
-            {bookData.data.map((book) => (
+            {bookData?.data.map((book) => (
               <li key={book.id} className="h-[10%] flex">
                 <Link
                   href={`/books/${book.id}`}

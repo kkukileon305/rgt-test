@@ -57,12 +57,9 @@ const BookController = ({ bookDetail }: { bookDetail: FakeBookDetail }) => {
             </p>
 
             <div className="flex">
-              <button className="text-white bg-red-400 p-2 w-1/2 font-extrabold">
-                상품 삭제
-              </button>
               <button
                 onClick={() => setIsOpen(false)}
-                className="text-white bg-blue-400 p-2 w-1/2 font-extrabold"
+                className="text-white bg-blue-400 p-2 w-full font-extrabold"
               >
                 닫기
               </button>
