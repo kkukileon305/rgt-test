@@ -7,6 +7,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "F. 스콧 피츠제럴드",
     description: "재즈 시대의 사랑과 배신에 관한 이야기.",
     publishedYear: 1925,
+    count: 0,
     genre: "고전",
   },
   {
@@ -15,6 +16,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "박경리",
     description: "한국 근현대사를 배경으로 한 대하소설.",
     publishedYear: 1969,
+    count: 2,
     genre: "대하소설",
   },
   {
@@ -23,6 +25,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "조지 오웰",
     description: "감시와 전체주의를 다룬 디스토피아 소설.",
     publishedYear: 1949,
+    count: 1,
     genre: "과학 소설",
   },
   {
@@ -31,6 +34,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "제인 오스틴",
     description: "영국 시골을 배경으로 한 로맨스 소설.",
     publishedYear: 1813,
+    count: 3,
     genre: "로맨스",
   },
   {
@@ -39,6 +43,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "J.D. 샐린저",
     description: "십대 소년의 반항과 고독을 그린 소설.",
     publishedYear: 1951,
+    count: 4,
     genre: "문학 소설",
   },
   {
@@ -47,6 +52,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "J.K. 롤링",
     description: "어린 마법사 해리 포터의 모험 이야기.",
     publishedYear: 1997,
+    count: 6,
     genre: "판타지",
   },
   {
@@ -55,6 +61,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "가브리엘 가르시아 마르케스",
     description: "마콘도 가문의 흥망성쇠를 그린 마술적 리얼리즘 소설.",
     publishedYear: 1967,
+    count: 2,
     genre: "마술적 리얼리즘",
   },
   {
@@ -63,6 +70,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "나관중",
     description: "중국 삼국 시대의 영웅들을 그린 역사 소설.",
     publishedYear: 1400,
+    count: 0,
     genre: "역사 소설",
   },
   {
@@ -71,6 +79,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "헤르만 헤세",
     description: "청년의 내면적 성장과 자아 발견을 다룬 소설.",
     publishedYear: 1919,
+    count: 3,
     genre: "철학 소설",
   },
   {
@@ -79,6 +88,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "앙투안 드 생텍쥐페리",
     description: "어린 왕자의 순수한 시선으로 본 세상 이야기.",
     publishedYear: 1943,
+    count: 0,
     genre: "동화",
   },
   {
@@ -87,6 +97,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "어니스트 헤밍웨이",
     description: "한 노인의 바다에서의 투쟁과 인내를 그린 소설.",
     publishedYear: 1952,
+    count: 0,
     genre: "문학 소설",
   },
   {
@@ -95,6 +106,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "조지 오웰",
     description: "동물들이 인간을 몰아내고 만든 이상적인 사회의 이야기.",
     publishedYear: 1945,
+    count: 0,
     genre: "풍자 소설",
   },
   {
@@ -103,6 +115,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "앙드레 지드",
     description: "사랑과 신앙 사이에서 갈등하는 한 여자의 이야기.",
     publishedYear: 1909,
+    count: 0,
     genre: "문학 소설",
   },
   {
@@ -111,6 +124,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "김훈",
     description: "이순신 장군의 삶과 전투를 그린 역사 소설.",
     publishedYear: 2001,
+    count: 0,
     genre: "역사 소설",
   },
   {
@@ -119,6 +133,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "조정래",
     description: "한국 현대사의 격동기를 배경으로 한 대하소설.",
     publishedYear: 1989,
+    count: 0,
     genre: "대하소설",
   },
   {
@@ -127,6 +142,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "요한 볼프강 폰 괴테",
     description: "악마와의 계약을 통해 지식을 얻으려는 한 학자의 이야기.",
     publishedYear: 1808,
+    count: 0,
     genre: "비극",
   },
   {
@@ -135,6 +151,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "표도르 도스토옙스키",
     description: "범죄와 그에 따른 죄책감을 다룬 심리 소설.",
     publishedYear: 1866,
+    count: 0,
     genre: "심리 소설",
   },
   {
@@ -143,6 +160,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "서머셋 몸",
     description: "예술을 위해 모든 것을 버린 한 화가의 이야기.",
     publishedYear: 1919,
+    count: 0,
     genre: "문학 소설",
   },
   {
@@ -151,6 +169,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "이광수",
     description: "한국 최초의 근대 소설로, 사랑과 배신을 그린 작품.",
     publishedYear: 1917,
+    count: 0,
     genre: "근대 소설",
   },
   {
@@ -159,6 +178,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "김동인",
     description: "한국 농촌의 삶과 인간성을 그린 소설.",
     publishedYear: 1932,
+    count: 0,
     genre: "리얼리즘 소설",
   },
   {
@@ -167,6 +187,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "최인훈",
     description: "한국 전쟁 이후의 분단 현실을 그린 소설.",
     publishedYear: 1960,
+    count: 0,
     genre: "현대 소설",
   },
   {
@@ -175,6 +196,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "오승은",
     description: "손오공의 모험을 그린 중국 고전 소설.",
     publishedYear: 1699,
+    count: 0,
     genre: "고전 소설",
   },
   {
@@ -183,6 +205,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "프란츠 카프카",
     description: "한 남자가 아침에 깨어나 벌레로 변한 이야기.",
     publishedYear: 1915,
+    count: 0,
     genre: "실존주의 소설",
   },
   {
@@ -191,6 +214,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "요한 볼프강 폰 괴테",
     description: "사랑과 좌절을 그린 서간체 소설.",
     publishedYear: 1774,
+    count: 0,
     genre: "서간체 소설",
   },
   {
@@ -199,6 +223,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "레프 톨스토이",
     description: "사랑과 배신, 사회적 규범을 다룬 소설.",
     publishedYear: 1877,
+    count: 0,
     genre: "리얼리즘 소설",
   },
   {
@@ -207,6 +232,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "한스 크리스티안 안데르센",
     description: "추운 겨울 밤, 성냥팔이 소녀의 슬픈 이야기.",
     publishedYear: 1845,
+    count: 0,
     genre: "동화",
   },
   {
@@ -215,6 +241,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "호메로스",
     description: "오디세우스의 고향으로의 귀환을 그린 고대 서사시.",
     publishedYear: -800,
+    count: 0,
     genre: "서사시",
   },
   {
@@ -223,6 +250,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "빅토르 위고",
     description: "프랑스 혁명 이후의 사회적 불평등을 그린 소설.",
     publishedYear: 1862,
+    count: 0,
     genre: "역사 소설",
   },
   {
@@ -231,6 +259,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "마리아 몬테소리",
     description: "아이들의 교육과 성장에 관한 철학적 고찰.",
     publishedYear: 1948,
+    count: 0,
     genre: "교육학",
   },
   {
@@ -239,6 +268,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "다자이 오사무",
     description: "자아의 붕괴와 사회적 부적응을 그린 소설.",
     publishedYear: 1948,
+    count: 0,
     genre: "자전적 소설",
   },
   {
@@ -247,6 +277,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "김소월",
     description: "한국 현대 시인의 대표적인 시집.",
     publishedYear: 1925,
+    count: 0,
     genre: "시집",
   },
   {
@@ -255,6 +286,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "마거릿 미첼",
     description: "미국 남북 전쟁을 배경으로 한 로맨스 소설.",
     publishedYear: 1936,
+    count: 0,
     genre: "역사 소설",
   },
   {
@@ -263,6 +295,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "루이자 메이 올콧",
     description: "네 자매의 성장과 사랑을 그린 소설.",
     publishedYear: 1868,
+    count: 0,
     genre: "성장 소설",
   },
   {
@@ -271,6 +304,7 @@ const fakebooksInfo: FakeBookDetail[] = [
     author: "니코스 카잔차키스",
     description: "자유로운 영혼 조르바의 삶과 철학을 그린 소설.",
     publishedYear: 1946,
+    count: 0,
     genre: "철학 소설",
   },
 ];
