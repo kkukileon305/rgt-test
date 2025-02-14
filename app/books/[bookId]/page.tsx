@@ -2,6 +2,7 @@ import { getBookDetail } from "@/app/books/actions";
 import { redirect } from "next/navigation";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import Link from "next/link";
+import BookController from "@/app/books/[bookId]/BookController";
 
 export default async function Page({
   params,
@@ -18,7 +19,7 @@ export default async function Page({
   }
 
   return (
-    <div className="h-lvh">
+    <div className="h-lvh relative">
       {/* 상단 타이틀바 */}
       <div className="relative h-12 flex justify-center items-center bg-white shadow">
         <Link href={"/books"} className="absolute left-2">
@@ -41,8 +42,10 @@ export default async function Page({
         <p className="px-4 py-2">{bookDetail.description}</p>
       </div>
 
-      {/* 하단 수량 네비게이션 */}
-      <div className="h-12 bg-white shadow">nav</div>
+      {/* 하단 관리 네비게이션 */}
+      <div className="h-12 bg-white shadow">
+        <BookController bookDetail={bookDetail} />
+      </div>
     </div>
   );
 }
