@@ -28,9 +28,14 @@ type GetBookInputOption = {
   author?: string;
 };
 
+export type BookPaginationData = {
+  data: FakeBook[];
+  count: number;
+};
+
 export async function getBooksWithPagination(
   inputOption: GetBookInputOption,
-): Promise<FakeBook[]> {
+): Promise<BookPaginationData> {
   const { page, size, title, author } = inputOption;
   const start = page * size;
   const end = start + size;
@@ -48,11 +53,14 @@ export async function getBooksWithPagination(
     );
   }
 
-  return filteredBooks.slice(start, end).map((book) => ({
-    id: book.id,
-    author: book.author,
-    title: book.title,
-  }));
+  return {
+    data: filteredBooks.slice(start, end).map((book) => ({
+      id: book.id,
+      author: book.author,
+      title: book.title,
+    })),
+    count: filteredBooks.length,
+  };
 }
 
 export async function getBookDetail(
