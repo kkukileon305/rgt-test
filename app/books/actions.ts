@@ -4,7 +4,7 @@ import fakebooksInfo from "@/app/books/fakebooksInfo";
 
 // 단순 유틸함수
 async function delay(time: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, time));
+  return new Promise((resolve) => setTimeout(resolve, time / 100));
 }
 
 export type FakeBook = {
