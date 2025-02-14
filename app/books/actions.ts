@@ -98,6 +98,24 @@ export async function addBook(bookInput: AddBookInput) {
   return;
 }
 
+type UpdateBookInput = {
+  id: number;
+  count: number;
+};
+
+export async function updateBook({ id, count }: UpdateBookInput) {
+  fakeBooksDB = fakeBooksDB.map((book) =>
+    book.id === id
+      ? book
+      : {
+          ...book,
+          count,
+        }
+  );
+
+  return;
+}
+
 export async function deleteBook(bookId: number) {
   await delay(1000);
 
