@@ -35,7 +35,7 @@ export type BookPaginationData = {
 };
 
 export async function getBooksWithPagination(
-  inputOption: GetBookInputOption
+  inputOption: GetBookInputOption,
 ): Promise<BookPaginationData> {
   await delay(1000);
 
@@ -48,7 +48,7 @@ export async function getBooksWithPagination(
   }
   if (author) {
     filteredBooks = filteredBooks.filter((book) =>
-      book.author.includes(author)
+      book.author.includes(author),
     );
   }
 
@@ -62,7 +62,7 @@ export async function getBooksWithPagination(
 }
 
 export async function getBookDetail(
-  id: number
+  id: number,
 ): Promise<FakeBookDetail | null> {
   const bookDetail = fakeBooksDB.find((book) => book.id === id);
 
@@ -98,8 +98,12 @@ type UpdateBookInput = {
 };
 
 export async function updateBook({ id, count }: UpdateBookInput) {
-  const index = fakeBooksDB.findIndex((book) => book.id === id);
+  try {
+    const index = fakeBooksDB.findIndex((book) => book.id === id);
 
-  fakeBooksDB[index] = { ...fakeBooksDB[index], count };
-  return;
+    fakeBooksDB[index] = { ...fakeBooksDB[index], count };
+    return true;
+  } catch (e) {
+    return false;
+  }
 }
