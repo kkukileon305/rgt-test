@@ -27,6 +27,8 @@ npm run dev
 
 ### 책 목록 페이지네이션(/app/books/BookPagination.tsx)
 
+[screen1.mp4](readme/screen1.mp4)
+
 페이지네이션 관리에 필요한 상태들을 useState로 저장합니다.
 ```typescript
 // bookData: 현재 페이지의 책 데이터를 저장합니다.
@@ -207,6 +209,8 @@ page를 올리고 내리는 버튼도 추가해줍니다. 현재 페이지가 0�
 
 ### 책 상세 정보 페이지(/app/books/[bookId]/page.tsx)
 
+[screen2.mp4](readme/screen2.mp4)
+
 사용자가 상세 정보 페이지에 접속시 page 서버 컴포넌트에서 bookId 값을 이용해 detail 정보를 불러옵니다.
 <br />
 혹시나 사용자가 없는 bookId에 접속할 경우를 대비하여 detail정보가 없을시 /books로 redirect하도록 구현했습니다.
@@ -239,6 +243,8 @@ export default async function Page({ params}: {
 ```
 
 ### 책 수량 조절기능(/app/books/[bookId]/BookController.tsx)
+
+[screen3.mp4](readme/screen3.mp4)
 
 관리 버튼을 클릭시 모달컴포넌트를 나타나게 하여 관리하도록 하였습니다.
 <br />
