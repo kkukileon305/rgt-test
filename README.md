@@ -25,6 +25,9 @@ npm run dev
 
 ## 구현 설명
 
+### FAKE api
+Nextjs의 server action을 이용하여 api연결 과정을 최소화하였습니다.
+
 ### 책 목록 페이지네이션(/app/books/BookPagination.tsx)
 
 
