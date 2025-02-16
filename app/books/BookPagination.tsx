@@ -38,6 +38,8 @@ const BookPagination = () => {
       const newData = await getBooksWithPagination({
         page,
         size: 10,
+        title: title ? title : undefined,
+        author: author ? author : undefined,
       });
 
       setIsLoading(false);
