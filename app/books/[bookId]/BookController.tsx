@@ -15,14 +15,17 @@ const BookController = ({ bookDetail }: { bookDetail: FakeBookDetail }) => {
     e.preventDefault();
 
     setIsLoading(true);
-    await updateBook({
+    const isSuccess = await updateBook({
       id: bookDetail.id,
       count: newCount,
     });
-    setIsLoading(false);
 
+    setIsLoading(false);
     setIsOpen(false);
-    router.refresh();
+
+    if (isSuccess) {
+      router.refresh();
+    }
   };
 
   return (
