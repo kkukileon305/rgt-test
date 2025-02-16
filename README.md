@@ -1,5 +1,5 @@
 ## 배포
-[https://rgt-test-phi.vercelZ.app/](https://rgt-test-phi.vercel.app/)
+https://rgt-test-phi.vercel.app/
 
 ## 설치와 실행
 
